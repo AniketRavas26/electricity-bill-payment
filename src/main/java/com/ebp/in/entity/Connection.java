@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.ebp.in.enums.ConnectionStatus;
 import com.ebp.in.enums.ConnectionType;
 
@@ -57,15 +59,13 @@ public class Connection {
 	public void setConsumerNumber(Long consumerNumber) {
 		this.consumerNumber = consumerNumber;
 	}
-
 	public Customer getCustomerConnection() {
 		return customerConnection;
 	}
-
+	
 	public void setCustomerConnection(Customer customerConnection) {
 		this.customerConnection = customerConnection;
 	}
-
 	public Address getConnectionAddress() {
 		return connectionAddress;
 	}

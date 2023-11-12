@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ebp.in.entity.User;
 import com.ebp.in.exception.DuplicateUserException;
@@ -24,6 +25,10 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+
+	
+	
 
 	@PostMapping(value = "/registerUser")
 	public ResponseEntity<User> registerUser(@RequestBody User user) throws DuplicateUserException {

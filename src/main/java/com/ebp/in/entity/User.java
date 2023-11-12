@@ -62,15 +62,4 @@ public class User {
 	public User() {
 		super();
 	}
-
-	public boolean isPresent() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public User get() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

@@ -17,28 +17,28 @@ public interface ConnectionRepository extends JpaRepository<Connection, Long> {
 	public Optional<Connection> findByConsumerNumber(Long consumerNumber);
 
 	@Query(value = "select o from Connection o where o.connectionStatus='ACTIVE' and o.connectionAddress.village=?1")
-	public List<Connection> getActiveConnectionsByVillage(String village);
+	public List<Connection> readActiveConnectionsByVillage(String village);
 
 	@Query(value = "select o from Connection o where o.connectionStatus='INACTIVE' and o.connectionAddress.village=?1")
-	public List<Connection> getInActiveConnectionsByVillage(String village);
+	public List<Connection> readInActiveConnectionsByVillage(String village);
 
 	@Query(value = "select o from Connection o where o.connectionStatus='ACTIVE' and o.connectionAddress.taluk=?1")
-	public List<Connection> getActiveConnectionsByTaluk(String taluk);
+	public List<Connection> readActiveConnectionsByTaluk(String taluk);
 
 	@Query(value = "select o from Connection o where o.connectionStatus='INACTIVE' and o.connectionAddress.taluk=?1")
-	public List<Connection> getInActiveConnectionsByTaluk(String taluk);
+	public List<Connection> readInActiveConnectionsByTaluk(String taluk);
 
 	@Query(value = "select o from Connection o where o.connectionStatus='ACTIVE' and o.connectionAddress.district=?1")
-	public List<Connection> getActiveConnectionsByDistrict(String district);
+	public List<Connection> readActiveConnectionsByDistrict(String district);
 
 	@Query(value = "select o from Connection o where o.connectionStatus='INACTIVE' and o.connectionAddress.district=?1")
-	public List<Connection> getInActiveConnectionsByDistrict(String district);
+	public List<Connection> readInActiveConnectionsByDistrict(String district);
 
 	@Query(value = "select o from Connection o where o.connectionStatus='ACTIVE' and o.connectionAddress.pincode=?1")
-	public List<Connection> getActiveConnectionsByPincode(String pincode);
+	public List<Connection> readActiveConnectionsByPincode(String pincode);
 
 	@Query(value = "select o from Connection o where o.connectionStatus='INACTIVE' and o.connectionAddress.pincode=?1")
-	public List<Connection> getInActiveConnectionsByPincode(String pincode);
+	public List<Connection> readInActiveConnectionsByPincode(String pincode);
 
 	
 }

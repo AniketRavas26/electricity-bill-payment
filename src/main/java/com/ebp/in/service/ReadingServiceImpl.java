@@ -54,7 +54,7 @@ public class ReadingServiceImpl implements ReadingService {
 	 */
 	@Override
 	public Reading findMeterReadingByConsumerNumber(Long consumerNumber) throws NoSuchCustomerException {
-		return read.findMeterReadingByConsumerNumber(consumerNumber)
+		return read.readMeterReadingByConsumerNumber(consumerNumber)
 				.orElseThrow(() -> new NoSuchCustomerException("Customer Not Exist!"));
 	}
 

@@ -56,20 +56,20 @@ public class BillServiceImpl implements BillService {
 		
 		@Override
 		public Bill viewBillByConsumerNumber(Long consumerNumber) throws NoSuchConnectionException {
-			return billRepository.viewBillByConsumerNumber(consumerNumber)
+			return billRepository.readBillByConsumerNumber(consumerNumber)
 					.orElseThrow(() -> new NoSuchConnectionException("No Connection Exist!"));
 	
 		}
 		
 		@Override
 		public Bill viewBillByMobileNumber(String mobileNumber) throws NoSuchCustomerException {
-			return billRepository.viewBillByMobileNumber(mobileNumber)
+			return billRepository.readBillByMobileNumber(mobileNumber)
 					.orElseThrow(() -> new NoSuchCustomerException("No Customer Exist!"));
 		}
 		
 		@Override
 		public Bill viewBillByEmail(String email) throws NoSuchCustomerException {
-			return billRepository.viewBillByEmail(email)
+			return billRepository.readBillByEmail(email)
 					.orElseThrow(() -> new NoSuchCustomerException("Bill Is Not available for given email :" + email));
 		}
 		
@@ -78,7 +78,7 @@ public class BillServiceImpl implements BillService {
 		@Override
 		public List<Bill> viewBillForDateRange(Date from, Date to) throws NoSuchCustomerException {
 			try {
-				return billRepository.findAllByBillDateBetween(from, to);
+				return billRepository.readAllByBillDateBetween(from, to);
 			} catch (Exception e) {
 				throw new NoSuchCustomerException("Bill Is Not Available For Date from" + from + "to" + to);
 			}

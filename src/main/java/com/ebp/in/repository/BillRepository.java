@@ -15,14 +15,14 @@ import com.ebp.in.entity.Bill;
 public interface BillRepository extends JpaRepository<Bill, Long> {
 
 	@Query(value = "select o from Bill o where  o.billForReading.readingForConnection.consumerNumber=?1")
-	public Optional<Bill> viewBillByConsumerNumber(Long consumerNumber);
+	public Optional<Bill> readBillByConsumerNumber(Long consumerNumber);
 
 	@Query(value = "select o from Bill o where  o.billForReading.readingForConnection.customerConnection.mobileNumber=?1")
-	public Optional<Bill> viewBillByMobileNumber(String mobileNumber);
+	public Optional<Bill> readBillByMobileNumber(String mobileNumber);
 
 	@Query(value = "SELECT b from Bill b where b.billForReading.readingForConnection.customerConnection.email=?1")
-	public Optional<Bill> viewBillByEmail(String email);
+	public Optional<Bill> readBillByEmail(String email);
 
 	@Query(value = "select b from Bill b where b.billDate>=?1 AND b.billDate<=?2")
-	List<Bill> findAllByBillDateBetween(Date from, Date to);
+	List<Bill> readAllByBillDateBetween(Date from, Date to);
 }

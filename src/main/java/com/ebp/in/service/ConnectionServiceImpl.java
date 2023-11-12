@@ -92,7 +92,7 @@ public class ConnectionServiceImpl implements ConnectionService {
 	 */
 	@Override
 	public List<Connection> findActiveConnectionsByVillage(String village) throws NoSuchConnectionException {
-		List<Connection> connection = connectionRepository.getActiveConnectionsByVillage(village);
+		List<Connection> connection = connectionRepository.readActiveConnectionsByVillage(village);
 		if (connection == null) {
 			throw new NoSuchConnectionException("connections are not available for this village name:" + village);
 		} else {
@@ -107,7 +107,7 @@ public class ConnectionServiceImpl implements ConnectionService {
 	 */
 	@Override
 	public List<Connection> findActiveConnectionsByTaluk(String taluk) throws NoSuchConnectionException {
-		return connectionRepository.getActiveConnectionsByTaluk(taluk);
+		return connectionRepository.readActiveConnectionsByTaluk(taluk);
 	}
 	
 	/*
@@ -116,7 +116,7 @@ public class ConnectionServiceImpl implements ConnectionService {
 	 */
 	@Override
 	public List<Connection> findActiveConnectionsByDistrict(String district) throws NoSuchConnectionException {
-		return connectionRepository.getActiveConnectionsByDistrict(district);
+		return connectionRepository.readActiveConnectionsByDistrict(district);
 	}
 	
 	/*
@@ -125,7 +125,7 @@ public class ConnectionServiceImpl implements ConnectionService {
 	 */
 	@Override
 	public List<Connection> findActiveConnectionsByPincode(String pincode) throws NoSuchConnectionException {
-		return connectionRepository.getActiveConnectionsByPincode(pincode);
+		return connectionRepository.readActiveConnectionsByPincode(pincode);
 	}
 	
 	
@@ -135,7 +135,7 @@ public class ConnectionServiceImpl implements ConnectionService {
 	 */
 	@Override
 	public List<Connection> findInActiveConnectionsByVillage(String village) throws NoSuchConnectionException {
-		return connectionRepository.getInActiveConnectionsByVillage(village);
+		return connectionRepository.readActiveConnectionsByVillage(village);
 	}
 	
 	
@@ -145,7 +145,7 @@ public class ConnectionServiceImpl implements ConnectionService {
 	 */
 	@Override
 	public List<Connection> findInActiveConnectionsByTaluk(String taluk) throws NoSuchConnectionException {
-		return connectionRepository.getInActiveConnectionsByTaluk(taluk);
+		return connectionRepository.readActiveConnectionsByTaluk(taluk);
 	}
 	
 	
@@ -156,7 +156,7 @@ public class ConnectionServiceImpl implements ConnectionService {
 
 	@Override
 	public List<Connection> findInActiveConnectionsByDistrict(String district) throws NoSuchConnectionException {
-		return connectionRepository.getInActiveConnectionsByDistrict(district);
+		return connectionRepository.readActiveConnectionsByDistrict(district);
 	}
 	
 	
@@ -167,7 +167,7 @@ public class ConnectionServiceImpl implements ConnectionService {
 
 	@Override
 	public List<Connection> findInActiveConnectionsByPincode(String pincode) throws NoSuchConnectionException {
-		return connectionRepository.getInActiveConnectionsByPincode(pincode);
+		return connectionRepository.readActiveConnectionsByPincode(pincode);
 	}
 
 }

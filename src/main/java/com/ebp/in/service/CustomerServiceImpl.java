@@ -43,21 +43,21 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Customer searchCustomerByEmail(String email) throws NoSuchCustomerException {
 		// TODO Auto-generated method stub
-		return customerRepository.findByEmail(email)
+		return customerRepository.readByEmail(email)
 				.orElseThrow(() -> new NoSuchCustomerException("No Customer Exist!"));
 	}
 
 	@Override
 	public Customer searchCustomerByAdhaar(Long adharNumber) throws NoSuchCustomerException {
 		// TODO Auto-generated method stub
-		return customerRepository.findByAdharNumber(adharNumber)
+		return customerRepository.readByAdharNumber(adharNumber)
 				.orElseThrow(() -> new NoSuchCustomerException("No Customer Exist!"));
 	}
 
 	@Override
 	public Customer searchCustomerByMobile(String mobile) throws NoSuchCustomerException {
 		// TODO Auto-generated method stub
-		return customerRepository.findByMobileNumber(mobile)
+		return customerRepository.readByMobileNumber(mobile)
 				.orElseThrow(() -> new NoSuchCustomerException("No Customer Exist!"));
 	}
 
@@ -65,7 +65,7 @@ public class CustomerServiceImpl implements CustomerService {
 	public List<Customer> searchCustomerByName(String customerName) throws NoSuchCustomerException {
 		// TODO Auto-generated method stub
 		try {
-			List<Customer> byName = customerRepository.findByFirstName(customerName);
+			List<Customer> byName = customerRepository.readByFirstName(customerName);
 			return byName;
 		} catch (Exception e) {
 			throw new NoSuchCustomerException("Customer with name:" + customerName + "not present");

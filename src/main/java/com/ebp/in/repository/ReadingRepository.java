@@ -12,6 +12,6 @@ import com.ebp.in.entity.Reading;
 public interface ReadingRepository extends JpaRepository<Reading, Long> {
 
 	@Query(value = "select o from Reading o where o.readingForConnection.consumerNumber=?1")
-	public Optional<Reading> findMeterReadingByConsumerNumber(Long consumerNumber);
+	public Optional<Reading> readMeterReadingByConsumerNumber(Long consumerNumber);
 
 }
