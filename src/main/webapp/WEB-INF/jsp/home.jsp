@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
-
+ pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
-	crossorigin="anonymous">
 <meta charset="ISO-8859-1">
-<title>Electricity Management System</title>
+<title>Insert title here</title>
+</head>
+<title>Electricity Bill Payment Application</title>
 </head>
 <body>
-	<h2> ${mes} </h2>
-	
+	<h2> ${mes}</h2>
+	<h4> Module - 1 : User </h4>
+	<h4> Module -2 : Customer </h4>
+	<h4> Module -3 : Connection</h4>
+	<h4> Module -4 : Reading </h4>
+	<h4> Module -5 : Bill</h4>
+	<h4> Module -6 : Payment</h4>
 </body>
 </html>
