@@ -1,4 +1,4 @@
-package com.ebp.in.service;
+package com.ebp.in.serviceimpl;
 
 import java.util.Optional;
 
@@ -10,6 +10,7 @@ import com.ebp.in.exception.DuplicateUserException;
 import com.ebp.in.exception.InvalidLoginCredentialException;
 import com.ebp.in.exception.NoSuchUserException;
 import com.ebp.in.repository.UserRepository;
+import com.ebp.in.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {

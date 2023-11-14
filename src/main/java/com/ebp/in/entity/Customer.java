@@ -2,25 +2,46 @@ package com.ebp.in.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Customer extends User{
-	private Long customerId;
+	
+
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(unique = true, nullable = false)
+	private int customerId;
+	@Column(unique = true, nullable = false)
+	@NotNull(message = "Aadhaar no is Required")
 	private Long adharNumber;
+	@NotEmpty(message = "Name is Required")
 	private String firstName;
 	private String middleName;
+	@NotEmpty(message = "Name is Required")
 	private String lastName;
+	@Column(unique = true, nullable = false)
+	@NotEmpty(message = "Mobile no is Required")
 	private String mobileNumber;
+	@Column(unique = true, nullable = false)
+	@Email
+	@NotBlank
+	@Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z]+.[a-zA-A]+", message = "enter email in valid format")
 	private String email;
+	@Column
 	private String gender;
 	
 	
-	@Column(unique = true, nullable = false)
-	
-	public Long getCustomerId() {
+	public int getCustomerId() {
 		return customerId;
 	}
-	public void setCustomerId(Long customerId) {
+	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
 	public Long getAdharNumber() {
@@ -65,8 +86,19 @@ public class Customer extends User{
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public Customer(Long userId, String userName, String password, Long customerId, Long adharNumber, String firstName,
-			String middleName, String lastName, String mobileNumber, String email, String gender) {
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", adharNumber=" + adharNumber + ", firstName=" + firstName
+				+ ", middleName=" + middleName + ", lastName=" + lastName + ", mobileNumber=" + mobileNumber
+				+ ", email=" + email + ", gender=" + gender + "]";
+	}
+	public Customer(Long userId, String userName, String password, int customerId,
+			@NotNull(message = "Aadhaar no is Required") Long adharNumber,
+			@NotEmpty(message = "Name is Required") String firstName, String middleName,
+			@NotEmpty(message = "Name is Required") String lastName,
+			@NotEmpty(message = "Mobile no is Required") String mobileNumber,
+			@Email @NotBlank @Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z]+.[a-zA-A]+", message = "enter email in valid format") String email,
+			String gender) {
 		super(userId, userName, password);
 		this.customerId = customerId;
 		this.adharNumber = adharNumber;
@@ -77,17 +109,14 @@ public class Customer extends User{
 		this.email = email;
 		this.gender = gender;
 	}
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", adharNumber=" + adharNumber + ", firstName=" + firstName
-				+ ", middleName=" + middleName + ", lastName=" + lastName + ", mobileNumber=" + mobileNumber
-				+ ", email=" + email + ", gender=" + gender + "]";
-	}
-	
 	public Customer() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+	public Customer(Long userId, String userName, String password) {
+		super(userId, userName, password);
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 	

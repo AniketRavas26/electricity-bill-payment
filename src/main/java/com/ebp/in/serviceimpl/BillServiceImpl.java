@@ -1,4 +1,4 @@
-package com.ebp.in.service;
+package com.ebp.in.serviceimpl;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -14,6 +14,7 @@ import com.ebp.in.exception.NoSuchConnectionException;
 import com.ebp.in.exception.NoSuchCustomerException;
 import com.ebp.in.repository.BillRepository;
 import com.ebp.in.repository.ReadingRepository;
+import com.ebp.in.service.BillService;
 
 
 
@@ -33,7 +34,7 @@ public class BillServiceImpl implements BillService {
 		@Override
 		public Bill generateBill(Reading reading) throws InvalidReadingException {
 			Bill bill = new Bill();
-			Bill generatedBill = null;
+			Bill generatedBill;
 			try {
 			Long readingId = reading.getReadingId();
 			Reading existingReading = readingRepository.findById(readingId).get();

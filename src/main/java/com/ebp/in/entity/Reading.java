@@ -24,7 +24,7 @@ public class Reading {
 	private String readingPhoto;
 	private Date readingDate;
 	private Double pricePerUnits;
-
+	
 	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "connection_id_fk", referencedColumnName = "connectionId")
 	private Connection readingForConnection;

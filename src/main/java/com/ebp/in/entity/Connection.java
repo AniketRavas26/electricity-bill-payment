@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ebp.in.enums.ConnectionStatus;
 import com.ebp.in.enums.ConnectionType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Connection {
@@ -126,6 +127,11 @@ public class Connection {
 				+ ", customerConnection=" + customerConnection + ", connectionAddress=" + connectionAddress
 				+ ", connectionType=" + connectionType + ", applicationDate=" + applicationDate + ", connectionDate="
 				+ connectionDate + ", connectionStatus=" + connectionStatus + "]";
+	}
+
+	public Connection() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	

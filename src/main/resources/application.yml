@@ -1,5 +1,4 @@
 
-
 server :
  port : 8089
 spring:
@@ -8,7 +7,7 @@ spring:
 
     driver-class-name: org.postgresql.Driver
 
-    url: jdbc:postgresql://localhost:5432/mydbtest
+    url: jdbc:postgresql://localhost:5432/mynewdbtest
 
     username: postgres
 

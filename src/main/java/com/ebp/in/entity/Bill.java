@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Bill {
@@ -26,6 +28,7 @@ public class Bill {
 
 	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "reading_fk", referencedColumnName = "readingId")
+	@JsonIgnore
 	private Reading billForReading;
 
 	public Long getBillId() {

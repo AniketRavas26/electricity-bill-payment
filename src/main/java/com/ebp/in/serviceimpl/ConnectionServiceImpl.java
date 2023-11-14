@@ -1,4 +1,4 @@
-package com.ebp.in.service;
+package com.ebp.in.serviceimpl;
 
 import java.util.Date;
 import java.util.List;
@@ -12,6 +12,7 @@ import com.ebp.in.entity.Customer;
 import com.ebp.in.exception.NoSuchConnectionException;
 import com.ebp.in.exception.NoSuchCustomerException;
 import com.ebp.in.repository.ConnectionRepository;
+import com.ebp.in.service.ConnectionService;
 
 
 

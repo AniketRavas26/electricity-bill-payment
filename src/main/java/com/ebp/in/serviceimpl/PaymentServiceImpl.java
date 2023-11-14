@@ -1,4 +1,4 @@
-package com.ebp.in.service;
+package com.ebp.in.serviceimpl;
 
 import java.util.Date;
 import java.util.List;
@@ -14,6 +14,7 @@ import com.ebp.in.enums.PaymentStatus;
 import com.ebp.in.exception.NoSuchCustomerException;
 import com.ebp.in.repository.BillRepository;
 import com.ebp.in.repository.PaymentRepository;
+import com.ebp.in.service.PaymentService;
 
 
 

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Address {
@@ -20,12 +21,15 @@ public class Address {
 
 	private String village;
 
-	private String taluk;
+	private String taluka;
 
+	@NotNull
 	private String district;
-
+	
+	@NotNull
 	private String state;
-
+	
+	@NotNull
 	private String pincode;
 
 	public Long getAddressId() {
@@ -69,11 +73,11 @@ public class Address {
 	}
 
 	public String getTaluk() {
-		return taluk;
+		return taluka;
 	}
 
-	public void setTaluk(String taluk) {
-		this.taluk = taluk;
+	public void setTaluk(String taluka) {
+		this.taluka = taluka;
 	}
 
 	public String getDistrict() {
@@ -103,7 +107,7 @@ public class Address {
 	@Override
 	public String toString() {
 		return "Address [addressId=" + addressId + ", flatOrHouseNumber=" + flatOrHouseNumber + ", buildingName="
-				+ buildingName + ", landmark=" + landmark + ", village=" + village + ", taluk=" + taluk + ", district="
+				+ buildingName + ", landmark=" + landmark + ", village=" + village + ", taluk=" + taluka + ", district="
 				+ district + ", state=" + state + ", pincode=" + pincode + "]";
 	}
 
@@ -115,7 +119,7 @@ public class Address {
 		this.buildingName = buildingName;
 		this.landmark = landmark;
 		this.village = village;
-		this.taluk = taluk;
+		this.taluka = taluka;
 		this.district = district;
 		this.state = state;
 		this.pincode = pincode;

@@ -1,4 +1,4 @@
-package com.ebp.in.service;
+package com.ebp.in.serviceimpl;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import com.ebp.in.entity.Customer;
 import com.ebp.in.exception.DuplicateCustomerException;
 import com.ebp.in.exception.NoSuchCustomerException;
 import com.ebp.in.repository.CustomerRepository;
+import com.ebp.in.service.CustomerService;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -62,13 +63,13 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public List<Customer> searchCustomerByName(String customerName) throws NoSuchCustomerException {
+	public List<Customer> searchCustomerByName(String firstName) throws NoSuchCustomerException {
 		// TODO Auto-generated method stub
 		try {
-			List<Customer> byName = customerRepository.readByFirstName(customerName);
+			List<Customer> byName = customerRepository.readByFirstName(firstName);
 			return byName;
 		} catch (Exception e) {
-			throw new NoSuchCustomerException("Customer with name:" + customerName + "not present");
+			throw new NoSuchCustomerException("Customer with name:" + firstName + "not present");
 		}
 
 	}
