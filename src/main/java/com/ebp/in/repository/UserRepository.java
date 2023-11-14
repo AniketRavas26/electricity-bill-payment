@@ -10,6 +10,8 @@ import com.ebp.in.entity.User;
 public interface UserRepository extends JpaRepository<User,Long> {
 
 	Optional<User> readByUserName(String userName);
+	
+	Optional<User> readUserByUserId(int userId);
 
 	@Query(value = "select o from users o where o.userName=?1 AND o.password=?2")
 	Optional<User> readByUserNameAndPassword(String userName,String password);

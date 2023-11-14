@@ -9,12 +9,15 @@ import com.ebp.in.entity.Customer;
 import com.ebp.in.entity.User;
 
 public interface CustomerRepository extends JpaRepository<User,Long>{
-	public Optional<Customer> readByEmail(String email);
+	
+	public Optional<Customer> readCustometByCustomerId(Long customerId);
+	
+	public Optional<Customer> readCustomerByEmail(String email);
 
-	public Optional<Customer> readByAdharNumber(Long adharNumber);
+	public Optional<Customer> readCustomerByAdharNumber(Long adharNumber);
 
-	public Optional<Customer> readByMobileNumber(String mobileNumber);
+	public Optional<Customer> readCustomerByMobileNumber(String mobileNumber);
 
-	public List<Customer> readByFirstName(String firstName);
+	public List<Customer> readCustomerByFirstName(String firstName);
 
 }
