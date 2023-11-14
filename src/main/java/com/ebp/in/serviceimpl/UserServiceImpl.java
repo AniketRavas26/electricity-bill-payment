@@ -1,4 +1,4 @@
-package com.ebp.in.service;
+package com.ebp.in.serviceimpl;
 
 import java.util.Optional;
 
@@ -10,16 +10,18 @@ import com.ebp.in.exception.DuplicateUserException;
 import com.ebp.in.exception.InvalidLoginCredentialException;
 import com.ebp.in.exception.NoSuchUserException;
 import com.ebp.in.repository.UserRepository;
+import com.ebp.in.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
+	
 	@Autowired
 	private UserRepository userRepository;
 
 	@Override
 	public User registerUser(User user) throws DuplicateUserException {
 		// TODO Auto-generated method stub
-		Optional<User> obj=userRepository.readByUserName(user.getUserName());
+		Optional<User> obj=userRepository.readUserByUserName(user.getUserName());
 		if (obj.isPresent()) {
 			throw new DuplicateUserException("Already Exist");
 		}else {
@@ -40,7 +42,7 @@ public class UserServiceImpl implements UserService {
 	public User changePassword(User user) throws NoSuchUserException {
 		// TODO Auto-generated method stub
 		User oldUser=null;
-		Optional<User> obj=userRepository.readByUserName(user.getUserName());
+		Optional<User> obj=userRepository.readUserByUserName(user.getUserName());
 		if(obj.isPresent()) {
 			oldUser=obj.get();
 			oldUser.setPassword(user.getPassword());
@@ -54,14 +56,14 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String forgotPassword(String username) throws Exception {
 		// TODO Auto-generated method stub
-		User password=((Optional<User>) userRepository.readByUserName( username)).orElseThrow(()->new Exception("no user found"));
+		User password=((Optional<User>) userRepository.readUserByUserName( username)).orElseThrow(()->new Exception("no user found"));
 		return password.getPassword();
 	}
 
 	@Override
 	public User searchUserByUsername(String username) throws NoSuchUserException {
 		// TODO Auto-generated method stub
-		return userRepository.readByUserName(username).orElseThrow(() -> new NoSuchUserException("No User Exists!"));
+		return userRepository.readUserByUserName(username).orElseThrow(() -> new NoSuchUserException("No User Exists!"));
 	}
 
 	@Override

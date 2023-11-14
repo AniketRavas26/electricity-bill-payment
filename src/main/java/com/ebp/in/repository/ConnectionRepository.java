@@ -22,11 +22,11 @@ public interface ConnectionRepository extends JpaRepository<Connection, Long> {
 	@Query(value = "select o from Connection o where o.connectionStatus='INACTIVE' and o.connectionAddress.village=?1")
 	public List<Connection> readInActiveConnectionsByVillage(String village);
 
-	@Query(value = "select o from Connection o where o.connectionStatus='ACTIVE' and o.connectionAddress.taluk=?1")
-	public List<Connection> readActiveConnectionsByTaluk(String taluk);
+	@Query(value = "select o from Connection o where o.connectionStatus='ACTIVE' and o.connectionAddress.taluka=?1")
+	public List<Connection> readActiveConnectionsByTaluka(String taluka);
 
-	@Query(value = "select o from Connection o where o.connectionStatus='INACTIVE' and o.connectionAddress.taluk=?1")
-	public List<Connection> readInActiveConnectionsByTaluk(String taluk);
+	@Query(value = "select o from Connection o where o.connectionStatus='INACTIVE' and o.connectionAddress.taluka=?1")
+	public List<Connection> readInActiveConnectionsByTaluka(String taluka);
 
 	@Query(value = "select o from Connection o where o.connectionStatus='ACTIVE' and o.connectionAddress.district=?1")
 	public List<Connection> readActiveConnectionsByDistrict(String district);

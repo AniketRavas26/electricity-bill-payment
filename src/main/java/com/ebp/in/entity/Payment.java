@@ -16,9 +16,10 @@ import javax.persistence.OneToOne;
 import com.ebp.in.enums.PaymentMode;
 import com.ebp.in.enums.PaymentStatus;
 
-@Entity
+
+
+@Entity(name="Payment")
 public class Payment {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long paymentId;
@@ -38,6 +39,9 @@ public class Payment {
 
 	@Enumerated(EnumType.STRING)
 	private PaymentStatus status;
+	
+	
+	
 
 	public Long getPaymentId() {
 		return paymentId;
@@ -118,6 +122,7 @@ public class Payment {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	
 	
 

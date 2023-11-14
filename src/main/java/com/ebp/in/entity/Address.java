@@ -4,8 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
-@Entity
+
+
+@Entity(name="Address")
 public class Address {
 
 	@Id
@@ -20,13 +23,18 @@ public class Address {
 
 	private String village;
 
-	private String taluk;
+	private String taluka;
 
+	@NotNull
 	private String district;
 
+	@NotNull
 	private String state;
 
+	@NotNull
 	private String pincode;
+	
+	
 
 	public Long getAddressId() {
 		return addressId;
@@ -68,12 +76,12 @@ public class Address {
 		this.village = village;
 	}
 
-	public String getTaluk() {
-		return taluk;
+	public String getTaluka() {
+		return taluka;
 	}
 
-	public void setTaluk(String taluk) {
-		this.taluk = taluk;
+	public void setTaluka(String taluka) {
+		this.taluka = taluka;
 	}
 
 	public String getDistrict() {
@@ -103,19 +111,19 @@ public class Address {
 	@Override
 	public String toString() {
 		return "Address [addressId=" + addressId + ", flatOrHouseNumber=" + flatOrHouseNumber + ", buildingName="
-				+ buildingName + ", landmark=" + landmark + ", village=" + village + ", taluk=" + taluk + ", district="
-				+ district + ", state=" + state + ", pincode=" + pincode + "]";
+				+ buildingName + ", landmark=" + landmark + ", village=" + village + ", taluka=" + taluka
+				+ ", district=" + district + ", state=" + state + ", pincode=" + pincode + "]";
 	}
 
 	public Address(Long addressId, int flatOrHouseNumber, String buildingName, String landmark, String village,
-			String taluk, String district, String state, String pincode) {
+			String taluka, @NotNull String district, @NotNull String state, @NotNull String pincode) {
 		super();
 		this.addressId = addressId;
 		this.flatOrHouseNumber = flatOrHouseNumber;
 		this.buildingName = buildingName;
 		this.landmark = landmark;
 		this.village = village;
-		this.taluk = taluk;
+		this.taluka = taluka;
 		this.district = district;
 		this.state = state;
 		this.pincode = pincode;
@@ -125,7 +133,7 @@ public class Address {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	
 
 }

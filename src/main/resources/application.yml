@@ -8,7 +8,7 @@ spring:
 
     driver-class-name: org.postgresql.Driver
 
-    url: jdbc:postgresql://localhost:5432/mydbtest
+    url: jdbc:postgresql://localhost:5432/mydbown
 
     username: postgres
 
@@ -27,7 +27,3 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
     open-in-view: false
-  mvc:
-   view:
-     prefix: /WEB-INF/jsp/
-     suffix: .jsp 

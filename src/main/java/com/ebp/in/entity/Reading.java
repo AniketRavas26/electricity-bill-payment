@@ -1,4 +1,5 @@
 package com.ebp.in.entity;
+
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -9,13 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-/*import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;*/
 
-@Entity
- 
+@Entity(name="Reading")
 public class Reading {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long readingId;
@@ -28,6 +26,8 @@ public class Reading {
 	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "connection_id_fk", referencedColumnName = "connectionId")
 	private Connection readingForConnection;
+	
+	
 
 	public Long getReadingId() {
 		return readingId;
@@ -99,7 +99,7 @@ public class Reading {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	
 
 }
