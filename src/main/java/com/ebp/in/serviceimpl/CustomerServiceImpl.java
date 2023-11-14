@@ -1,4 +1,4 @@
-package com.ebp.in.service;
+package com.ebp.in.serviceimpl;
 
 import java.util.List;
 
@@ -9,9 +9,11 @@ import com.ebp.in.entity.Customer;
 import com.ebp.in.exception.DuplicateCustomerException;
 import com.ebp.in.exception.NoSuchCustomerException;
 import com.ebp.in.repository.CustomerRepository;
+import com.ebp.in.service.CustomerService;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
+	
 	@Autowired
 	private CustomerRepository customerRepository;
 
@@ -71,6 +73,12 @@ public class CustomerServiceImpl implements CustomerService {
 			throw new NoSuchCustomerException("Customer with name:" + customerName + "not present");
 		}
 
+	}
+
+	@Override
+	public Customer saveCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		return customerRepository.save(customer);
 	}
 
 }

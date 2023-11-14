@@ -22,5 +22,7 @@ public interface CustomerService {
 	public Customer searchCustomerByMobile(String mobile) throws NoSuchCustomerException;
 
 	public List<Customer> searchCustomerByName(String customerName) throws NoSuchCustomerException;
+	
+	public Customer saveCustomer(Customer customer);
 
 }

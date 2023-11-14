@@ -1,4 +1,4 @@
-package com.ebp.in.service;
+package com.ebp.in.serviceimpl;
 
 import java.util.Date;
 import java.util.List;
@@ -12,6 +12,7 @@ import com.ebp.in.entity.Customer;
 import com.ebp.in.exception.NoSuchConnectionException;
 import com.ebp.in.exception.NoSuchCustomerException;
 import com.ebp.in.repository.ConnectionRepository;
+import com.ebp.in.service.ConnectionService;
 
 
 
@@ -71,7 +72,7 @@ public class ConnectionServiceImpl implements ConnectionService {
 			e.printStackTrace();
 		}
 		Customer c1 = new Customer();
-		c1.setAdharNumber(c.getCustomerConnection().getAdharNumber());
+		c1.setAadhaarNumber(c.getCustomerConnection().getAadhaarNumber());
 		c1.setEmail(c.getCustomerConnection().getEmail());
 		c1.setFirstName(c.getCustomerConnection().getFirstName());
 		c1.setGender(c.getCustomerConnection().getGender());
@@ -106,8 +107,8 @@ public class ConnectionServiceImpl implements ConnectionService {
 	 * If the village does not exits it throws no such connection exception
 	 */
 	@Override
-	public List<Connection> findActiveConnectionsByTaluk(String taluk) throws NoSuchConnectionException {
-		return connectionRepository.readActiveConnectionsByTaluk(taluk);
+	public List<Connection> findActiveConnectionsByTaluk(String taluka) throws NoSuchConnectionException {
+		return connectionRepository.readActiveConnectionsByTaluka(taluka);
 	}
 	
 	/*
@@ -140,12 +141,12 @@ public class ConnectionServiceImpl implements ConnectionService {
 	
 	
 	/*
-	 *  We can Search InActive connection by taking Taluk name,
+	 *  We can Search InActive connection by taking Taluka name,
 	 * If the village does not exits it throws no such connection exception
 	 */
 	@Override
-	public List<Connection> findInActiveConnectionsByTaluk(String taluk) throws NoSuchConnectionException {
-		return connectionRepository.readActiveConnectionsByTaluk(taluk);
+	public List<Connection> findInActiveConnectionsByTaluk(String taluka) throws NoSuchConnectionException {
+		return connectionRepository.readActiveConnectionsByTaluka(taluka);
 	}
 	
 	

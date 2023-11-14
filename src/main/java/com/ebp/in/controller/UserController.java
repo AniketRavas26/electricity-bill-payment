@@ -25,10 +25,6 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
-
-	
-	
 
 	@PostMapping(value = "/registerUser")
 	public ResponseEntity<User> registerUser(@RequestBody User user) throws DuplicateUserException {

@@ -1,4 +1,4 @@
-package com.ebp.in.service;
+package com.ebp.in.serviceimpl;
 
 import java.util.Date;
 
@@ -9,7 +9,8 @@ import com.ebp.in.entity.Connection;
 import com.ebp.in.entity.Reading;
 import com.ebp.in.exception.NoSuchCustomerException;
 import com.ebp.in.repository.ReadingRepository;
-
+import com.ebp.in.service.BillService;
+import com.ebp.in.service.ReadingService;
 
 
 @Service
@@ -27,7 +28,7 @@ public class ReadingServiceImpl implements ReadingService {
 	@Override
 	public Reading selfSubmit(Reading reading) {
 		Double pricePerUnit = reading.getPricePerUnits();
-		Reading reading1 = null;
+		Reading reading1 ;
 		Connection existingConnection = reading.getReadingForConnection();
 		Long connectionId = existingConnection.getConnectionId();
 		if (connectionId == 0) {

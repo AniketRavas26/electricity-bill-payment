@@ -1,6 +1,8 @@
 package com.ebp.in.entity;
+
 import java.time.LocalDate;
 import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 
-@Entity
+
+
+@Entity(name="Bill")
 public class Bill {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +32,7 @@ public class Bill {
 	@JoinColumn(name = "reading_fk", referencedColumnName = "readingId")
 	private Reading billForReading;
 
+	
 	public Long getBillId() {
 		return billId;
 	}
@@ -76,6 +81,27 @@ public class Bill {
 		this.billForReading = billForReading;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Bill [billId=" + billId + ", billDate=" + billDate + ", billDueDate=" + billDueDate + ", unitsConsumed="
+				+ unitsConsumed + ", billAmount=" + billAmount + ", billForReading=" + billForReading + "]";
+	}
+
+	public Bill(Long billId, Date billDate, LocalDate billDueDate, double unitsConsumed, double billAmount,
+			Reading billForReading) {
+		super();
+		this.billId = billId;
+		this.billDate = billDate;
+		this.billDueDate = billDueDate;
+		this.unitsConsumed = unitsConsumed;
+		this.billAmount = billAmount;
+		this.billForReading = billForReading;
+	}
+
+	public Bill() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	
 }

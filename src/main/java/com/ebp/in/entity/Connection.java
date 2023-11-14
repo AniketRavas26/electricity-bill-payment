@@ -12,12 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.ebp.in.enums.ConnectionStatus;
 import com.ebp.in.enums.ConnectionType;
 
-@Entity
+
+@Entity(name="Connection")
 public class Connection {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +42,8 @@ public class Connection {
 
 	@Enumerated(EnumType.STRING)
 	private ConnectionStatus connectionStatus;
+	
+	
 
 	public Long getConnectionId() {
 		return connectionId;
@@ -59,13 +60,15 @@ public class Connection {
 	public void setConsumerNumber(Long consumerNumber) {
 		this.consumerNumber = consumerNumber;
 	}
+
 	public Customer getCustomerConnection() {
 		return customerConnection;
 	}
-	
+
 	public void setCustomerConnection(Customer customerConnection) {
 		this.customerConnection = customerConnection;
 	}
+
 	public Address getConnectionAddress() {
 		return connectionAddress;
 	}
@@ -106,6 +109,14 @@ public class Connection {
 		this.connectionStatus = connectionStatus;
 	}
 
+	@Override
+	public String toString() {
+		return "Connection [connectionId=" + connectionId + ", consumerNumber=" + consumerNumber
+				+ ", customerConnection=" + customerConnection + ", connectionAddress=" + connectionAddress
+				+ ", connectionType=" + connectionType + ", applicationDate=" + applicationDate + ", connectionDate="
+				+ connectionDate + ", connectionStatus=" + connectionStatus + "]";
+	}
+
 	public Connection(Long connectionId, Long consumerNumber, Customer customerConnection, Address connectionAddress,
 			ConnectionType connectionType, Date applicationDate, Date connectionDate,
 			ConnectionStatus connectionStatus) {
@@ -120,15 +131,11 @@ public class Connection {
 		this.connectionStatus = connectionStatus;
 	}
 
-	@Override
-	public String toString() {
-		return "Connection [connectionId=" + connectionId + ", consumerNumber=" + consumerNumber
-				+ ", customerConnection=" + customerConnection + ", connectionAddress=" + connectionAddress
-				+ ", connectionType=" + connectionType + ", applicationDate=" + applicationDate + ", connectionDate="
-				+ connectionDate + ", connectionStatus=" + connectionStatus + "]";
+	public Connection() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	
 	
 	
 }
